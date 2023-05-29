@@ -1,0 +1,29 @@
+#!/bin/bash
+sudo apt update
+echo "update sukses"
+sudo apt install vim -y
+echo "Vim install sukses"
+sudo apt install git -y
+echo "Git Sukses"
+
+#install docker
+sudo apt update
+echo "sukses update"
+sudo apt install \
+            ca-certificates \
+                curl \
+                    gnupg \
+                        lsb-release -y
+echo "sukses install ca-cert, curl, gnopg, lsb"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docke$
+echo \
+          "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gp$
+            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+echo "sukses update"
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+echo "Docker Sukses Install"
+
+#install docker compose
+sudo curl -L "https://github.com/docker/compose/releases/download/2.17.3/docker-compose-$(uname -s)-$(una$
+sudo chmod +x /usr/local/bin/docker-compose
