@@ -1,0 +1,13 @@
+#!/bin/bash
+apt update
+echo "sukses update"
+# Set sudo su on ubuntu 20.04
+echo "Set disable_coredump false" >> /etc/sudo.conf
+sudo timedatectl set-timezone Asia/Jakarta
+echo "update zona waktu sukses"
+apt install -y curl unzip htop sudo
+echo "sukses install dependensi"
+curl -s https://deb.nodesource.com/setup_20.x | sudo bash
+sudo apt-get install -y nodejs
+#firefox & npm install
+npx playwright install-deps
